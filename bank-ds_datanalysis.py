@@ -29,3 +29,13 @@ print(
     f"Target 'y' - negative labels prop (%) : {round((df_raw['y'].value_counts()[0]/df_raw.shape[0])*100,2)}%", '\n')
 print(
     f"Target 'y' - positive labels prop (%) : {round((df_raw['y'].value_counts()[1]/df_raw.shape[0])*100,2)}%")
+
+# %% 'emp.var.rate' column analysis
+fig, ax = plt.subplots(ncols=2)
+ax[0].set_title(label = 'emp.var.rate variable histogram', fontdict = {'fontsize' : 10})
+ax[1].set_title(label = 'emp.var.rate variable boxplot', fontdict = {'fontsize' : 10})
+
+df_raw['emp.var.rate'].plot(kind='hist', ax = ax[0], grid=True, xticks=[-3, -2, -1, 0, 1])
+df_raw['emp.var.rate'].plot(kind='box', ax = ax[1])
+
+df_raw['emp.var.rate'].describe()
